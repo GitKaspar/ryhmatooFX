@@ -36,7 +36,9 @@ javafx {
 
 dependencies {
     implementation('org.controlsfx:controlsfx:11.1.2')
-    implementation('com.github.almasb:fxgl:17.2') {
+    implementation('com.github.almasb:fxgl:17.2')
+    implementation ('org.openjfx:javafx-media:19')
+            {
         exclude(group: 'org.openjfx')
     }
 
