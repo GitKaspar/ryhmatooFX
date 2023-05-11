@@ -54,6 +54,7 @@ public class nuppudeSättija extends Application {
 
         Scene testStseen = new Scene(kuhjaPaan, 1280,720);
         lava.setScene(testStseen);
+        lava.setResizable(false);
         lava.show();
 
     }
