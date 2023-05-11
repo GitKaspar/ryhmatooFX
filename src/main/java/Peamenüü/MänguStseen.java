@@ -120,6 +120,7 @@ public class MänguStseen extends Scene {
                 if (rida.isEmpty()) {
                     tekstiväli.setText(sõneKuvamiseks.toString());
                     sõneKuvamiseks.setLength(0);
+
                 } else
                     sõneKuvamiseks.append(rida + "\n");
             }
