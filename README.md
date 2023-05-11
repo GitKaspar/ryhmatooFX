@@ -2,6 +2,6 @@
 
 ## Klass Tekstid
 
-'''
+```
 // Lugemised siia.
-'''
+```
