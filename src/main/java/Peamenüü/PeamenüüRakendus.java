@@ -79,7 +79,7 @@ public class PeamenüüRakendus extends Application{
      * Vaid ImageView objektile fikseeritud suuruse andmine lõi väiksemad nupud.
      * Selleta nupud pildi algsuuruses - hiiglaslikud.
      */
-        static Button meieNupp(String failinimi, double x, double y){
+        public static Button meieNupp(String failinimi, double x, double y){
 
         Image pilt = new Image(failinimi);
         ImageView vaade = new ImageView(pilt);
