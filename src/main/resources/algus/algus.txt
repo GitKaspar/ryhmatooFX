@@ -1,0 +1,7 @@
+Mängu eesmärk on soortiada edukalt riitus, mis kutsub välja jumaluse.
+Selleks on vaja eelnevalt täita mõned ülesanded.
+Tekst kuvatakse mängijale lugemiseks automaatselt. Kohati küsitakse jätkamiseks sisendit.
+Otsuseid saab teha vajutades vastavaid numbriklahve või hiirega valikuvariandil klikkides.
+Kui valikuvariante ei ole, peab jätkamiseks vajutama kollasele noolele.
+
+Edu ja loodame, et mäng meeldib!
