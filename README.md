@@ -53,5 +53,8 @@ public class FailistLugeja {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        HashMap<String, List<String>> algus = loeFailist("algus/algus.txt");
-```
+    HashMap<String, List<String>> algus = loeFailist("algus/algus.txt");
+    HashMap<String, List<String>> kohad = loeFailist("algus/kohad.txt");
+    HashMap<String, List<String>> samaaniTutvustus = loeFailist("algus/samaaniTutvustus.txt");
+    
+    ```
