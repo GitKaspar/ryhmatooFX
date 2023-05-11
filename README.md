@@ -1,20 +1,5 @@
 # ryhmatooFX
 
-## Klass Tekstid
-
-``` 
-// Lugemised siia.
-
-// Kaspari lugemised.
-1. algus,
-2. 
-
-// Liisa lugemised.
-
-
-```
-
----
 
 ```
 // Lugemismeetod
@@ -53,10 +38,26 @@ public class FailistLugeja {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-    HashMap<String, List<String>> algus = loeFailist("algus/algus.txt");
-    HashMap<String, List<String>> kohad = loeFailist("algus/kohad.txt");
-    HashMap<String, List<String>> samaaniTutvustus = loeFailist("algus/samaaniTutvustus.txt");
+  
+    HashMap<String, List<String>> algus = loeFailist("src/main/resources/algus/algus.txt");
+    HashMap<String, List<String>> kohad = loeFailist("src/main/resources/algus/kohad.txt");
+    HashMap<String, List<String>> samaaniTutvustus = loeFailist("src/main/resources/algus/samaaniTutvustus.txt");
     
+    HashMap<String, List<String>> kukudLabi = loeFailist("src/main/resources/lopp/kukudLabi.txt");
+    HashMap<String, List<String>> oledEdukas = loeFailist("src/main/resources/lopp/oledEdukas.txt");
+    HashMap<String, List<String>> ootus = loeFailist("src/main/resources/lopp/ootus.txt");
+    HashMap<String, List<String>> riitusSj = loeFailist("src/main/resources/lopp/riitusSj.txt");
+    
+    HashMap<String, List<String>> adlinTulemused = loeFailist("src/main/resources/tulemused/adlinTulemused.txt");
+    HashMap<String, List<String>> altarTulemused = loeFailist("src/main/resources/tulemused/altarTulemused.txt");
+    HashMap<String, List<String>> jurkaTulemused = loeFailist("src/main/resources/tulemused/jurkaTulemused.txt");
+    HashMap<String, List<String>> koskTulemused = loeFailist("src/main/resources/tulemused/koskTulemused.txt");
+    HashMap<String, List<String>> samaanTulemused = loeFailist("src/main/resources/tulemused/samaanTulemused.txt");
+    
+    HashMap<String, List<String>> koskEba6nn = loeFailist("src/main/resources/ylesanne1/koskEba6nn.txt");
+    HashMap<String, List<String>> koskEdu = loeFailist("src/main/resources/ylesanne1/koskEdu.txt");
+    HashMap<String, List<String>> koskSj = loeFailist("src/main/resources/ylesanne1/koskSj.txt");
+
     HashMap<String, List<String>> altar = loeFailist("src/main/resources/ylesanne2/altar.txt");
     HashMap<String, List<String>> altar1 = loeFailist("src/main/resources/ylesanne2/altar1.txt");
     HashMap<String, List<String>> altar2 = loeFailist("src/main/resources/ylesanne2/altar2.txt");
@@ -79,5 +80,6 @@ public class FailistLugeja {
     HashMap<String, List<String>> aklupatiSamaan = loeFailist("src/main/resources/ylesanne5/aklupatiSamaan.txt");
     HashMap<String, List<String>> aklupatiSamaan1 = loeFailist("src/main/resources/ylesanne5/aklupatiSamaan1.txt");   
     
-    
-    ```
+    }
+}
+```
