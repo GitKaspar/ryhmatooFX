@@ -89,9 +89,6 @@ public class MänguStseen extends Scene {
         sisendiKast.setAlignment(Pos.CENTER_RIGHT);
         sisendiKast.getChildren().add(jätka);
 
-        loeFailEtte("src/main/resources/algus/algus.txt", uustekst);
-        loeFailEtte("src/main/resources/algus/samaaniTutvustus.txt", uustekst);
-
 
         // peapaan.getChildren().get(0).setVisible(false);
 
@@ -99,33 +96,6 @@ public class MänguStseen extends Scene {
 
 
     }
-
-    /**
-     * Lihtsam failist lugemise meetod
-     * @param failiNimi fail, millest loetakse
-     * @param tekstiväli Text tüüpi isend, kuhu faili sisu loetakse
-     * @throws IOException juhul kui faili ei ole
-     * Loeb ridahaaval faili sisu StringBuilderisse.
-     * Kui esineb tühi rida...
-     * Kuidas tühja rea puhul paus tekitada?
-     * väljastatakse tekst, StringBuilder tühjendatakse, jätkamisnupp nähtav.
-     * Lugemisega jätkatakse siis, kui jätkamisnupule on vajutatud.
-     */
-    public static void loeFailEtte(String failiNimi, Text tekstiväli) throws IOException {
-
-            Scanner lugeja = new Scanner(new File(failiNimi), StandardCharsets.UTF_8);
-            StringBuilder sõneKuvamiseks = new StringBuilder();
-            while (lugeja.hasNextLine()) {
-                String rida = lugeja.nextLine();
-                if (rida.isEmpty()) {
-                    tekstiväli.setText(sõneKuvamiseks.toString());
-                    sõneKuvamiseks.setLength(0);
-
-                } else
-                    sõneKuvamiseks.append(rida + "\n");
-            }
-            tekstiväli.setText(sõneKuvamiseks.toString());
-        }
 
 
 }
