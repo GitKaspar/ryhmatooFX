@@ -5,21 +5,27 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.concurrent.CountDownLatch;
 
 public class MänguStseen extends Scene {
+
+    private static Button jätka;
 
     public MänguStseen(Parent juur, double width, double height) {
         super(juur, width, height);
@@ -72,12 +78,11 @@ public class MänguStseen extends Scene {
         pealeht.setPadding(new Insets(150, 0, 0, 0));
         peapaan.getChildren().add(pealeht);
 
-        Button jätka = PeamenüüRakendus.meieNupp("EDASI_BUTTON.png", 60, 60);
+        jätka = PeamenüüRakendus.meieNupp("EDASI_BUTTON.png", 60, 60);
         jätka.setVisible(false);
         jätka.setOnMouseClicked(event -> {
             pealeht.setVisible(false);
-            peapaan.getChildren().get(0).setVisible(false);
-            jätka.setVisible(false);
+            uustekst.textProperty().set("");
         });
 
         sisendiKast.setMaxWidth(800);
@@ -85,16 +90,41 @@ public class MänguStseen extends Scene {
         sisendiKast.getChildren().add(jätka);
 
         loeFailEtte("src/main/resources/algus/algus.txt", uustekst);
+        loeFailEtte("src/main/resources/algus/samaaniTutvustus.txt", uustekst);
 
-        jätka.setVisible(true);
+
+        // peapaan.getChildren().get(0).setVisible(false);
+
+
+
 
     }
+
+    /**
+     * Lihtsam failist lugemise meetod
+     * @param failiNimi fail, millest loetakse
+     * @param tekstiväli Text tüüpi isend, kuhu faili sisu loetakse
+     * @throws IOException juhul kui faili ei ole
+     * Loeb ridahaaval faili sisu StringBuilderisse.
+     * Kui esineb tühi rida...
+     * Kuidas tühja rea puhul paus tekitada?
+     * väljastatakse tekst, StringBuilder tühjendatakse, jätkamisnupp nähtav.
+     * Lugemisega jätkatakse siis, kui jätkamisnupule on vajutatud.
+     */
     public static void loeFailEtte(String failiNimi, Text tekstiväli) throws IOException {
-        Scanner lugeja = new Scanner(new File(failiNimi), StandardCharsets.UTF_8);
-        StringBuilder sõneKuvamiseks = new StringBuilder();
-        while (lugeja.hasNextLine()) {
-            String rida = lugeja.nextLine();
-            sõneKuvamiseks.append(rida + "\n");
+
+            Scanner lugeja = new Scanner(new File(failiNimi), StandardCharsets.UTF_8);
+            StringBuilder sõneKuvamiseks = new StringBuilder();
+            while (lugeja.hasNextLine()) {
+                String rida = lugeja.nextLine();
+                if (rida.isEmpty()) {
+                    tekstiväli.setText(sõneKuvamiseks.toString());
+                    sõneKuvamiseks.setLength(0);
+                } else
+                    sõneKuvamiseks.append(rida + "\n");
+            }
+            tekstiväli.setText(sõneKuvamiseks.toString());
         }
-        tekstiväli.setText(sõneKuvamiseks.toString());
-    }}
+
+
+}
