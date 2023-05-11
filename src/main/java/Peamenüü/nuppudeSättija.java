@@ -27,6 +27,7 @@ public class nuppudeSättija extends Application {
         Button jürka = PeamenüüRakendus.meieNupp("JURKA_BUTTON.png", 171, 171);
         Button samaan = PeamenüüRakendus.meieNupp("SAMAAN_BUTTON.png", 183, 183);
         Button tompsuu = PeamenüüRakendus.meieNupp("TOMPSUU_BUTTON.png", 171, 171);
+        Button tuli = PeamenüüRakendus.meieNupp("TULI.png",285, 289);
 
         adllin.setLayoutY(385);
         adllin.setLayoutX(1160);
@@ -43,8 +44,11 @@ public class nuppudeSättija extends Application {
         tompsuu.setLayoutY(149);
         tompsuu.setLayoutX(955);
 
+        tuli.setLayoutY(318);
+        tuli.setLayoutX(647);
 
-        kuhjaPaan.getChildren().addAll(adllin, altar,jürka,samaan, tompsuu);
+
+        kuhjaPaan.getChildren().addAll(adllin, altar,jürka,samaan, tompsuu, tuli);
 
 
 
