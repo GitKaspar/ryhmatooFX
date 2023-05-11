@@ -90,6 +90,15 @@ public class MänguStseen extends Scene {
         sisendiKast.getChildren().add(jätka);
 
 
+        uustekst.setViewOrder(0);
+
+        Tekstid tekstikogu = new Tekstid();
+        Tekstid.väljastaTekst(tekstikogu.getAlgus(), uustekst, jätka);
+
+        /**
+         * Probleem?
+         */
+
         // peapaan.getChildren().get(0).setVisible(false);
 
 
