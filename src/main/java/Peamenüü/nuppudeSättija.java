@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class nuppudeSättija extends Application {
     @Override
     public void start(Stage lava) throws Exception {
-        StackPane kuhjaPaan = new StackPane();
+        BorderPane kuhjaPaan = new BorderPane();
         Image kaart = new Image("MAP_värv.jpg");
         ImageView kaartView = new ImageView(kaart);
 
@@ -49,7 +49,6 @@ public class nuppudeSättija extends Application {
 
 
         kuhjaPaan.getChildren().addAll(adllin, altar,jürka,samaan, tompsuu, tuli);
-
 
 
         Scene testStseen = new Scene(kuhjaPaan, 1280,720);
