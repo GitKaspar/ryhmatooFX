@@ -99,21 +99,12 @@ public class Tekstid {
         StringBuilder väljastatavSõne = new StringBuilder();
 
         for (List<String> value : samm.values()) {
-            nupp.setOnMouseClicked(event -> {
-                nupp.setVisible(false);
-                väljastatavSõne.setLength(0);
-            });
             for (int i = 0; i < value.size(); i++) {
-                if (value.get(i).equals("...")) {
-                    nupp.setVisible(true);
-                    tekstiväli.setText(väljastatavSõne.toString());
-                }
-                else{
                 väljastatavSõne.append(value.get(i) + "\n");
                 }
+            tekstiväli.setText(väljastatavSõne.toString());
             }
         }
-    }
 
     public LinkedHashMap<String, List<String>> getAlgus() {
         return algus;

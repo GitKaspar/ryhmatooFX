@@ -1,8 +1,6 @@
 package Peamenüü;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -11,21 +9,22 @@ public class FailistLugeja {
     public FailistLugeja()   {
     }
 
-    public static LinkedHashMap<String, List<String>> loeFailist(String failinimi) throws IOException {
-        Scanner lugeja = new Scanner(new File(failinimi), StandardCharsets.UTF_8);
+    public static LinkedHashMap<String, List<String>> loeFailist(String failinimi)  {
         LinkedHashMap<String, List<String>> failiSõnastik = new LinkedHashMap<>();
-        while (lugeja.hasNextLine()) {
+        try (BufferedReader puhverlugeja = new BufferedReader(new InputStreamReader(new FileInputStream(failinimi), StandardCharsets.UTF_8))) {
             String fail = failinimi.substring(failinimi.lastIndexOf('/') + 1, failinimi.lastIndexOf('.'));
-            String rida = lugeja.nextLine();
-            if (failiSõnastik.isEmpty()) {
-                failiSõnastik.put(fail, new ArrayList<String>());
-            } else {
-                if (rida.isEmpty()) {
-                    failiSõnastik.get(fail).add("...");
+            String rida = puhverlugeja.readLine();
+            while (rida != null) {
+                if (!failiSõnastik.containsKey(fail)) {
+                    failiSõnastik.put(fail, new ArrayList<String>());
                 } else {
                     failiSõnastik.get(fail).add(rida);
                 }
+                rida = puhverlugeja.readLine();
             }
+        }
+        catch (IOException e) {
+            System.out.println("Programm ei leidnud soovitud faili. Sõnum: " + e.getMessage());
         }
         return failiSõnastik;
     }

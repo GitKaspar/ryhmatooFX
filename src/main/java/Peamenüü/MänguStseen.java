@@ -9,19 +9,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-
-import java.io.DataInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-import java.util.concurrent.CountDownLatch;
 
 public class MänguStseen extends Scene {
 
@@ -73,10 +65,15 @@ public class MänguStseen extends Scene {
 
         HBox sisendiKast = new HBox();
 
-        VBox pealeht = new VBox(100, uustekst, sisendiKast);
+        VBox pealeht = new VBox(uustekst);
         pealeht.setAlignment(Pos.TOP_CENTER);
         pealeht.setPadding(new Insets(150, 0, 0, 0));
         peapaan.getChildren().add(pealeht);
+
+        sisendiKast.setAlignment(Pos.BOTTOM_CENTER);
+        sisendiKast.setPadding(new Insets(0, 0, 0, 150));
+        sisendiKast.setMaxWidth(800);
+        peapaan.getChildren().add(sisendiKast);
 
         jätka = PeamenüüRakendus.meieNupp("EDASI_BUTTON.png", 60, 60);
         jätka.setVisible(false);
@@ -85,15 +82,16 @@ public class MänguStseen extends Scene {
             uustekst.textProperty().set("");
         });
 
-        sisendiKast.setMaxWidth(800);
-        sisendiKast.setAlignment(Pos.CENTER_RIGHT);
         sisendiKast.getChildren().add(jätka);
 
 
-        uustekst.setViewOrder(0);
+      //  uustekst.setViewOrder(0);
 
         Tekstid tekstikogu = new Tekstid();
         Tekstid.väljastaTekst(tekstikogu.getAlgus(), uustekst, jätka);
+
+        // Tekstikast saab  väärtuse, aga akent ei värskendata.
+        // Lugemismeetod jätab ikka esimese rea vahele.
 
         /**
          * Probleem?
