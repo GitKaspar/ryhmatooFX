@@ -14,23 +14,23 @@ import javafx.stage.Stage;
 public class nuppudeSättija extends Application {
     @Override
     public void start(Stage lava) throws Exception {
-        StackPane kuhjaPaan = new StackPane();
+        BorderPane piiriPaan = new BorderPane();
         Image kaart = new Image("MAP_värv.jpg");
         ImageView kaartView = new ImageView(kaart);
 
-        kuhjaPaan.setBackground(new Background(new BackgroundImage(kaart,
+        piiriPaan.setBackground(new Background(new BackgroundImage(kaart,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                 new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, true, true))));
 
-        Button adllin = PeamenüüRakendus.meieNupp("ADLIN_BUTTON.png", 169, 169);
+        Button adlin = PeamenüüRakendus.meieNupp("ADLIN_BUTTON.png", 169, 169);
         Button altar = PeamenüüRakendus.meieNupp("ALTAR_BUTTON.png", 171, 256);
         Button jürka = PeamenüüRakendus.meieNupp("JURKA_BUTTON.png", 171, 171);
         Button samaan = PeamenüüRakendus.meieNupp("SAMAAN_BUTTON.png", 183, 183);
         Button tompsuu = PeamenüüRakendus.meieNupp("TOMPSUU_BUTTON.png", 171, 171);
         Button tuli = PeamenüüRakendus.meieNupp("TULI.png",285, 289);
 
-        adllin.setLayoutY(385);
-        adllin.setLayoutX(1160);
+        adlin.setLayoutY(385);
+        adlin.setLayoutX(1160);
 
         altar.setLayoutY(600);
         altar.setLayoutX(1100);
@@ -48,11 +48,11 @@ public class nuppudeSättija extends Application {
         tuli.setLayoutX(647);
 
 
-        kuhjaPaan.getChildren().addAll(adllin, altar,jürka,samaan, tompsuu, tuli);
+        piiriPaan.getChildren().addAll(adlin, altar,jürka,samaan, tompsuu, tuli);
 
 
 
-        Scene testStseen = new Scene(kuhjaPaan, 1280,720);
+        Scene testStseen = new Scene(piiriPaan, 1280,720);
         lava.setScene(testStseen);
         lava.setResizable(false);
         lava.show();
